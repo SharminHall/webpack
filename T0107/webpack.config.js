@@ -5,7 +5,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const postcssList = [
     require('autoprefixer'),
-
+    require('postcss-cssnext'),
+    require('precss')
 ]
 
 const config = {
@@ -19,6 +20,7 @@ const config = {
     devtool: 'none',
     devServer: {
         contentBase: './build/',
+        port: 8989,
         inline: true,
         hot: true
     },
@@ -64,6 +66,10 @@ const config = {
             template: './app/entry.html',
             filename: 'index.html',
             chunks: ['index']
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jquery: 'jquery'
         })
     ]
 }
