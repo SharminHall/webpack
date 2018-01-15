@@ -56,6 +56,7 @@ const config = {
             }
         ]
     },
+    resolve: {},
     plugins: [
         new webpack.LoaderOptionsPlugin({
             options: {
